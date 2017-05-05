@@ -2,15 +2,23 @@
 <project version="4">
   <component name="EclipseCodeFormatter">
     <option name="defaultSettings" value="true" />
+    <option name="formatter" value="ECLIPSE" />
     <option name="id" value="1483359911052" />
     <option name="name" value="default" />
     <option name="pathToConfigFileJava" value="$USER_HOME$/.IntelliJIdea2016.1/code-style.xml" />
     <option name="selectedJavaProfile" value="code-style.xml" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectDictionaryState">
-    <dictionary name="Administrator" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
   </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -82,34 +90,10 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="true" assert-keyword="false" jdk-15="false" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="Copyright.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
