@@ -6,15 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 /**
  * Created by ldy on 2017/5/5.
  */
-public class FastJsonTest {
-	public static void main(String[] args) {
-		String jsonString = encode();
-		System.out.println(jsonString);
-		Group group = decode(jsonString);
-		System.out.println(group);
-	}
+public class FastJsonAPI {
 
-	private static String encode() {
+	public static String encode() {
 		Group group = new Group();
 		group.setId(0L);
 		group.setName("admin");
@@ -41,7 +35,7 @@ public class FastJsonTest {
 	 * @param jsonString
 	 * @return
 	 */
-	private static Group decode(String jsonString) {
+	public static Group decode(String jsonString) {
 		Group group = JSON.parseObject(jsonString, Group.class);
 		return group;
 	}
