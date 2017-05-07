@@ -25,6 +25,7 @@ public class FastJsonAPI {
 		group.addUser(rootUser);
 
 		String jsonString = JSON.toJSONString(group);
+		System.out.println(JSON.toJSON(1));
 
 		return jsonString;
 	}
