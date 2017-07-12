@@ -51,8 +51,9 @@ public class SVNUtil {
         DefaultSVNOptions options = SVNWCUtil.createDefaultOptions(true);
         clientManager = SVNClientManager.newInstance(options, authManager);
 
-        // 获取SVN仓库根URL
+        // 获取SVN仓库根URL（需要授权才能调用）
         repository.getRepositoryRoot(true);
+        // repository.getRepositoryUUID(true);
 
         // SVN全局设置过滤文件类型
         DefaultSVNOptions svnOptions = (DefaultSVNOptions) clientManager.getOptions();

@@ -11,13 +11,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tmatesoft.svn.core.SVNDepth;
+import org.tmatesoft.svn.core.SVNErrorMessage;
 import org.tmatesoft.svn.core.SVNException;
 import org.tmatesoft.svn.core.SVNNodeKind;
 import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.wc.SVNStatus;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
-
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 
 public class SVNUtilTest {
 
@@ -304,17 +303,87 @@ public class SVNUtilTest {
     /**
      * 华丽丽的分割线------HighLevl API和LowLevel API
      */
+
+    @Test
+    public void testCreateRepository() {
+        try {
+            path += "/folder1/folder4/folder5";// 路径已存在会报错
+            SVNURL svnURL = SVNLowLevelUtil.createRepository(path);
+            System.out.println(svnURL.getPath());
+        } catch (SVNException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void testIsExistedInSvn() {
         try {
             boolean existedInSvn = SVNLowLevelUtil.isExistedInSvn("");
             // boolean existedInSvn = SVNUtil.isExistedInSvn(".project");
             System.out.println(existedInSvn);
-            SVNLowLevelUtil.repositoryInfo();
         } catch (SVNException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testRepositoryInfo() {
+        try {
+            SVNURL svnURL = SVNLowLevelUtil.repositoryInfo();
+            System.out.println("主机地址：" + svnURL.getHost());
+            System.out.println("相对SVN服务器地址：" + svnURL.getPath());
+            System.out.println("SVN协议：" + svnURL.getProtocol());
+            System.out.println("默认端口号：" + SVNURL.getDefaultPortNumber(svnURL.getProtocol()));
+            System.out.println("用户信息：" + svnURL.getUserInfo());
+            System.out.println("用户信息：" + svnURL.getURIEncodedPath());
+
+        } catch (SVNException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testFileInfo() {
+        try {
+            String path = "folder1/file1.txt";
+            SVNLowLevelUtil.fileInfo(path);
+        } catch (SVNException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testListEntries() {
+        try {
+            // String path = "";
+            String path = "一柜通";
+            SVNLowLevelUtil.repositoryTree(path);
+        } catch (SVNException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testShowLog() {
+        try {
+            SVNLowLevelUtil.showLog(new String[] { "" });
+        } catch (SVNException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testCommitBySVNEditor() {
+        try {
+            SVNLowLevelUtil.commitBySVNEditor();
+        } catch (SVNException e) {
+            SVNErrorMessage err = e.getErrorMessage();
+            while (err != null) {
+                System.err.println(err.getErrorCode().getCode() + " : " + err.getMessage());
+                err = err.getChildErrorMessage();
+            }
         }
     }
 }
